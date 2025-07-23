@@ -1,0 +1,136 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    /* Prevent scrolling if content is small */
+}
+
+.container {
+    padding: 20px;
+    max-width: 90%;
+    /* For mobile responsiveness */
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+#logo {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    /* Ensure logo scales down on small screens */
+    height: auto;
+    /* Maintain aspect ratio */
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    /* Keep existing transition for click feedback */
+}
+
+#logo:active {
+    transform: scale(0.98);
+    /* Little feedback on click */
+}
+
+/* New CSS for rotation animation */
+.rotate-animation {
+    animation: slightRotate 2s ease-in-out forwards;
+    /* Apply animation for 2 seconds */
+}
+
+@keyframes slightRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(10deg);
+    }
+
+    20% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    40% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(-10deg);
+    }
+
+    70% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
+    /* Ends at original position */
+}
+
+
+h1 {
+    font-size: 1.5em;
+    /* Adjust for mobile */
+    margin-bottom: 20px;
+}
+
+.file-link {
+    display: none;
+    /* Hidden by default */
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.file-link a {
+    color: #4CAF50;
+    /* Green link color */
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    display: inline-block;
+    /* Allow padding */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.file-link a:hover {
+    background-color: #4CAF50;
+    color: black;
+}
+
+.file-link.show {
+    display: block;
+    /* Show when 'show' class is added */
+}
+
+/* Media Queries for better mobile experience */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    #logo {
+        max-width: 300px;
+        /* Larger max-width on larger screens */
+    }
+}

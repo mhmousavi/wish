@@ -27,16 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
         clickCount++;
 
         if (clickCount === 1) {
-            clickCounterText.textContent = "Press me 2 more times";
-            revealFile("letter.pdf", "Download PDF File", "letter.pdf");
+            clickCounterText.textContent = "Appuie sur moi deux fois encore 😉";
+            revealFile("letter.pdf", "Download the letter", "letter.pdf");
         } else if (clickCount === 2) {
-            clickCounterText.textContent = "Press me 1 more time";
-            revealFile("voice.mp3", "Download MP3 File", "voice.mp3");
+            clickCounterText.textContent = "Appuie sur moi encore une fois 😉";
+            revealFile("voice.mp3", "Download the voice", "voice.mp3");
         } else if (clickCount === 3) {
-            clickCounterText.textContent = "Here are your files!";
-            revealFile("video.mp4", "Download MP4 File", "video.mp4");
+            clickCounterText.textContent = "Voici tes fichiers !";
+            revealFile("video.mp4", "Download the video", "video.mp4");
         } else {
-            clickCounterText.textContent = "All files revealed!";
+            clickCounterText.textContent = "Au revoir mon amour";
         }
     });
 

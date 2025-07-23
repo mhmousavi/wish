@@ -4,38 +4,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickCounterText = document.getElementById('clickCounterText');
     const filesContainer = document.getElementById('filesContainer');
 
-    // Function to create and append a link, with animation
-    function revealFile(href, text, filename = null) { // Added filename parameter
+    function revealFile(href, text, filename = null, newText) {
         // Add animation class
         logo.classList.add('rotate-animation');
 
-        // Wait for the animation to complete (2000ms = 2 seconds)
         setTimeout(() => {
-            // Remove animation class after it completes, so it can be re-applied on next click
             logo.classList.remove('rotate-animation');
 
-            const newLink = createLink(href, text, filename); // Pass filename to createLink
+            const newLink = createLink(href, text, filename);
             filesContainer.appendChild(newLink);
-            // Use a slight delay to ensure CSS transition works for display property
+
             setTimeout(() => {
                 newLink.classList.add('show');
             }, 10);
-        }, 2000); // 2 seconds delay
+
+            // Update text content here to sync with animation end
+            if (newText) {
+                clickCounterText.textContent = newText;
+            }
+        }, 2000); // animation duration
     }
 
     logo.addEventListener('click', function () {
         clickCount++;
 
         if (clickCount === 1) {
-            clickCounterText.textContent = "Appuie sur moi deux fois encore 😉";
-            revealFile("letter.pdf", "Download the letter", "letter.pdf");
+            revealFile("letter.pdf", "Download the letter", "letter.pdf", "Appuie sur moi deux fois encore 😉");
         } else if (clickCount === 2) {
-            clickCounterText.textContent = "Appuie sur moi encore une fois 😉";
-            revealFile("voice.mp3", "Download the voice", "voice.mp3");
+            revealFile("voice.mp3", "Download the voice", "voice.mp3", "Appuie sur moi encore une fois 😉");
         } else if (clickCount === 3) {
-            clickCounterText.textContent = "Voici tes fichiers !";
-            revealFile("video.mp4", "Download the video", "video.mp4");
+            revealFile("video.mp4", "Download the video", "video.mp4", "Voici tes fichiers !");
         } else {
+            // For this last text, no animation, so just update instantly
             clickCounterText.textContent = "Au revoir mon amour";
         }
     });
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const anchor = document.createElement('a');
         anchor.href = href;
         anchor.textContent = text;
-        anchor.download = filename || true; // Use filename if provided, otherwise just true
-        anchor.target = "_blank"; // This will open the link in a new tab
+        anchor.download = filename || true;
+        anchor.target = "_blank";
 
         fileLinkDiv.appendChild(anchor);
         return fileLinkDiv;

@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 15px;
     max-width: 90%;
     /* For mobile responsiveness */
     box-sizing: border-box;
@@ -91,7 +91,7 @@ body {
 h1 {
     font-size: 1.5em;
     /* Adjust for mobile */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .file-link {

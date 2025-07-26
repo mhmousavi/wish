@@ -39,8 +39,8 @@ body {
 
 /* New CSS for rotation animation */
 .rotate-animation {
-    animation: slightRotate 2s ease-in-out forwards;
-    /* Apply animation for 2 seconds */
+    animation: slightRotate 1s ease-in-out forwards;
+    /* Apply animation for 1 seconds */
 }
 
 @keyframes slightRotate {
@@ -96,32 +96,40 @@ h1 {
 
 .file-link {
     display: none;
-    /* Hidden by default */
-    margin-top: 10px;
-    font-size: 1.2em;
-}
-
-.file-link a {
-    color: #4CAF50;
-    /* Green link color */
-    text-decoration: none;
-    padding: 8px 15px;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    display: inline-block;
-    /* Allow padding */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.file-link a:hover {
-    background-color: #4CAF50;
-    color: black;
+    margin-top: 12px;
+    font-size: 1.1em;
+    text-align: center;
 }
 
 .file-link.show {
     display: block;
-    /* Show when 'show' class is added */
 }
+
+/* Button styling */
+.file-link a {
+    color: #00ffb3;
+    background-color: #121212;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 1px solid #00ffb3;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 0 transparent;
+}
+
+/* Hover effect */
+.file-link a:hover {
+    background-color: #00ffb3;
+    color: #121212;
+    box-shadow: 0 4px 12px rgba(0, 255, 179, 0.3);
+    transform: translateY(-2px);
+}
+
 
 /* Media Queries for better mobile experience */
 @media (min-width: 768px) {
@@ -133,4 +141,8 @@ h1 {
         max-width: 300px;
         /* Larger max-width on larger screens */
     }
+}
+
+#filesContainer {
+    padding-bottom: 10vh;
 }

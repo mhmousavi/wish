@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickCounterText = document.getElementById('clickCounterText');
     const filesContainer = document.getElementById('filesContainer');
 
+   logo.classList.add('rotate-animation');
+    setTimeout(() => {
+        logo.classList.remove('rotate-animation');
+    }, 1000);
+
     function revealFile(href, text, filename = null, newText) {
         // Add animation class
         logo.classList.add('rotate-animation');
@@ -22,21 +27,26 @@ document.addEventListener('DOMContentLoaded', function () {
             if (newText) {
                 clickCounterText.textContent = newText;
             }
-        }, 2000); // animation duration
+        }, 1000); // animation duration
     }
 
     logo.addEventListener('click', function () {
         clickCount++;
 
         if (clickCount === 1) {
-            revealFile("letter.pdf", "Download the letter", "letter.pdf", "Appuie sur moi deux fois encore 😉");
+            revealFile("letter.pdf", "📄 Take the letter", "letter.pdf", "Appuie sur moi deux fois encore 😉");
         } else if (clickCount === 2) {
-            revealFile("voice.mp3", "Download the voice", "voice.mp3", "Appuie sur moi encore une fois 😉");
+            revealFile("voice.mp3", "🎤 Take the voice", "voice.mp3", "Appuie sur moi encore une fois 😉");
         } else if (clickCount === 3) {
-            revealFile("video.mp4", "Download the video", "video.mp4", "Voici tes fichiers !");
+            revealFile("video.mp4", "🎬 Take the video", "video.mp4", "Voici tes fichiers !");
+        } else if (clickCount > 6) {
+            clickCounterText.textContent = "💖 Surprise! Je t'aime 💖";
+            filesContainer.innerHTML = "";
+            showHearts();
         } else {
             // For this last text, no animation, so just update instantly
             clickCounterText.textContent = "Au revoir mon amour";
+            filesContainer.innerHTML = ""; // Clear all files
         }
     });
 
@@ -54,3 +64,26 @@ document.addEventListener('DOMContentLoaded', function () {
         return fileLinkDiv;
     }
 });
+
+
+// Add this function at the end of your script
+function showHearts() {
+    for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.textContent = '💖';
+        heart.style.position = 'fixed';
+        heart.style.left = Math.random() * 90 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.fontSize = (Math.random() * 30 + 30) + 'px';
+        heart.style.opacity = 0.8;
+        heart.style.transition = 'top 2s linear, opacity 2s linear';
+        document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.style.top = Math.random() * 40 + 'vh';
+            heart.style.opacity = 0;
+        }, 100);
+        setTimeout(() => {
+            heart.remove();
+        }, 2200);
+    }
+}
